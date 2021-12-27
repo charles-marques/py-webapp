@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 # inicializando Flask
 app = Flask(__name__)
@@ -19,6 +19,14 @@ def vendas():
     total_vendas = tabela['Vendas'].sum()
     resultado = {'total_vendas': total_vendas}
     return jsonify(resultado)
+
+@app.route('/images')
+def images_index():
+    return render_template('index.html', bg_color = None)
+
+@app.route('/images/<bgcolor>')
+def images_detail(bgcolor):
+    return render_template('index.html', bg_color = bgcolor)
 
 # start app
 app.run(host='0.0.0.0')

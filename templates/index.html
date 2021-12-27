@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Web API Python</title>
+        <style>
+            .container {
+                height: 100vh;
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        {% if bg_color != None %}
+        <div class="container" style="background-color: {{bg_color}};">
+            <img src="{{ url_for('static', filename = 'images/flask.png')}}">
+        </div >
+        {% endif %}
+
+        {% if bg_color == None %}
+        <div class="container" style="background-color: silver;">
+            <h2>Tela Padrão fundo cinza!</h2>
+            <img src="{{ url_for('static', filename = 'images/python-web-framework.png')}}">
+        </div>
+        {% endif %}
+    </body>
+</html>
